@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -12,6 +13,6 @@ func main() {
 	//auth Group
 	auth:=app.Group("/auth")
 	auth.Get("/line",handler.LineHandler)
-   
+   fmt.Print("test")
 	log.Fatal(app.Listen(":8080"))
 }
