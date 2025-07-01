@@ -1,18 +1,14 @@
-name: Build and Push Gateway Docker Image
+name: Build and Push Multi-Arch Docker Image
 
 on:
   push:
     branches: [main]
     paths:
-      - 'gateway/**'  # รัน workflow เฉพาะถ้าไฟล์ใน gateway เปลี่ยน
+      - 'gateway/**'
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: gateway
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,10 +22,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image (multi-arch)
         uses: docker/build-push-action@v4
         with:
           context: ./gateway
           file: ./gateway/Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: wachrwisw12/gateway:latest
