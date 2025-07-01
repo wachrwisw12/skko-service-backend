@@ -13,6 +13,6 @@ func main() {
 	//auth Group
 	auth:=app.Group("/auth")
 	auth.Get("/line",handler.LineHandler)
-   fmt.Print("tesdfd1")
+   fmt.Print("tesdfกดd1")
 	log.Fatal(app.Listen(":8080"))
 }
