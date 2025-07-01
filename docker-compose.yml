@@ -1,0 +1,11 @@
+
+services:
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+
+  # timekeep:
+  #   build: ./timekeep
+  #   ports:
+  #     - "8081:8081"
