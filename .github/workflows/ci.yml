@@ -32,4 +32,4 @@ jobs:
           context: ./gateway
           file: ./gateway/Dockerfile
           push: true
-          tags: yourdockerhubusername/gateway:latest
+          tags: wachrwisw12/gateway:latest
