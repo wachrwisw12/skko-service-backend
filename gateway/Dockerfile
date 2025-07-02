@@ -14,6 +14,6 @@ WORKDIR /app
 
 COPY --from=builder /app/gateway .
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["./gateway"]
