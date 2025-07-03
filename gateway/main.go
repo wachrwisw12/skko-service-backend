@@ -51,6 +51,16 @@ func main() {
 		return c.SendString("gentoken")
 	})
 
+	// 🔍 DEBUG ก่อนเปิด HTTPS
+	log.Printf("📄 ตรวจ certFile: %q\n", certFile)
+	log.Printf("📄 ตรวจ keyFile:  %q\n", keyFile)
+
+	if _, err := os.Stat(certFile); err != nil {
+		log.Fatalf("❌ ไม่พบ cert: %v", err)
+	}
+	if _, err := os.Stat(keyFile); err != nil {
+		log.Fatalf("❌ ไม่พบ key: %v", err)
+	}
 	// เปิด HTTPS ที่ port 3001
 	log.Println("🚀 เริ่มบริการ HTTPS ที่ https://localhost:3001/")
 	if err := app.ListenTLS(":3001", certFile, keyFile); err != nil {
