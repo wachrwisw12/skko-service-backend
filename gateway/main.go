@@ -33,5 +33,5 @@ func main() {
    mophnot.Post("/gentoken",func (c *fiber.Ctx) error  {
 	return c.SendString("gentoken")
    })
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":3001"))
 }
