@@ -13,7 +13,7 @@ type User struct {
 }
 
 func AuthLineService(line_id string) (*User, error) {
-	query := "SELECT  concat(u.prename,u.user_first_name,u.user_last_name) AS fullname,u.line_id,u.office_id  FROM co_user  u WHERE  u.line_id= ? LIMIT 1"
+	query := "SELECT u.user_id, concat(u.prename,u.user_first_name,u.user_last_name) AS fullname,u.line_id,u.office_id  FROM co_user  u WHERE  u.line_id= ? LIMIT 1"
 	row := db.DB.QueryRow(query, line_id)
 
 	var user User
